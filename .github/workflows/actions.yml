@@ -1,0 +1,27 @@
+name: Run main.py
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo content
+      uses: actions/checkout@v2 # Checkout the repository content
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10' # Install the Python version needed
+
+    - name: Execute Python script
+      run: python main.py > README.md 
+
+    - name: Commit change & Push
+      run: |
+        git config user.name 'sree-hari-s'
+        git config user.email 'sreeharis1999@gmail.com'
+        git commit -am "Update README.md using Python script"
+        git push
