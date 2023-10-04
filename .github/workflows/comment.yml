@@ -15,7 +15,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Hey Contributor! You can start working on the issue. Good luck!
-              Please comment `/assign` to get this issue assigned to you.
-              Don't forget to star the repository!'
+              body: '👋 Thanks for reporting!'
             })
